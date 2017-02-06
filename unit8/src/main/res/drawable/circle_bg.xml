@@ -11,7 +11,7 @@
         android:centerColor="#F6F750"
         android:endColor="#1E18F6"
         android:gradientRadius="200px"
-        android:startColor="@color/black"
+        android:startColor="#000"
         android:type="radial" />
 
     <size
