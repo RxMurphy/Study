@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Random;
 
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     private void saveImg() {
         String path = Environment.getExternalStorageDirectory().getPath() + "/bitmap_table.png";
         try {
+//            File file = new File(path);
             FileOutputStream fos = new FileOutputStream(path);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
