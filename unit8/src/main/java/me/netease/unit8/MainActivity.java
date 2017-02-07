@@ -40,19 +40,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void prepareCanvas() {
-        dp40 = DensityUtils.dp2px(this, 40);
-        int dp20 = DensityUtils.dp2px(this, 20);
-        width = dp20 * 24;
-        height = dp20 * 16;
+        dp40 = DensityUtils.dp2px(this, 30);
+        width = dp40 * 12;
+        height = dp40 * 8;
         bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
         imageView.setImageBitmap(bitmap);
         paintLine = new Paint();
         paintLine.setAntiAlias(true);
         paintLine.setStyle(Paint.Style.STROKE);
+        paintLine.setColor(Color.BLACK);
         paintLine.setStrokeWidth(1);
         paintColor = new Paint();
         paintColor.setAntiAlias(true);
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         paintText = new Paint();
         paintText.setTextAlign(Paint.Align.CENTER);
         paintText.setColor(Color.BLACK);
-        paintText.setTextSize(DensityUtils.sp2px(this, 12));
+        paintText.setTextSize(DensityUtils.sp2px(this, 8));
         paintDivider = new Paint();
         paintDivider.setAntiAlias(true);
         paintDivider.setStyle(Paint.Style.STROKE);
@@ -82,22 +80,23 @@ public class MainActivity extends AppCompatActivity {
         }
         for (int i = 1; i < 12; i++) {
             int startX = i * dp40;
-            drawDivider(startX, 1, startX, 1 + height);
+            drawDivider(startX, 0, startX, height);
         }
         for (int i = 1; i < 8; i++) {
             int startY = i * dp40;
-            drawDivider(1, startY, 1 + width, startY);
+            drawDivider(0, startY, width, startY);
         }
     }
 
     private void saveImg() {
-        String path = Environment.getExternalStorageDirectory().getPath() + "/bitmap_table.png";
+//        String path = Environment.getExternalStorageDirectory().getPath() + "/bitmap_table.png";
+        String path = "/mnt/sdcard/bitmap_table.png";
         try {
 //            File file = new File(path);
             FileOutputStream fos = new FileOutputStream(path);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
-            Log.d("Success","保存成功");
+            Log.d("Success", "保存成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,10 +115,15 @@ public class MainActivity extends AppCompatActivity {
         canvas.drawRect(rect, paintColor);
         canvas.drawLine(left + dp40 / 2, top, left + dp40 / 2, top + dp40, paintLine);
         canvas.drawLine(left, top + dp40 / 2, left + dp40, top + dp40 / 2, paintLine);
-        canvas.drawText(Integer.toHexString(colors[0]).toUpperCase(), left + dp40 / 4, top + dp40 / 4 + getFontHeight() / 4, paintText);
-        canvas.drawText(Integer.toHexString(colors[1]).toUpperCase(), left + dp40 / 4 * 3, top + dp40 / 4 + getFontHeight() / 4, paintText);
-        canvas.drawText(Integer.toHexString(colors[2]).toUpperCase(), left + dp40 / 4, top + dp40 / 4 * 3 + getFontHeight() / 4, paintText);
-        canvas.drawText(Integer.toHexString(colors[3]).toUpperCase(), left + dp40 / 4 * 3, top + dp40 / 4 * 3 + getFontHeight() / 4, paintText);
+        String alpha = Integer.toHexString(colors[0]).toUpperCase();
+
+        canvas.drawText(alpha.length() == 1 ? "0" + alpha : alpha, left + dp40 / 4, top + dp40 / 4 + getFontHeight() / 4, paintText);
+        String red = Integer.toHexString(colors[1]).toUpperCase();
+        canvas.drawText(red.length() == 1 ? "0" + red : red, left + dp40 / 4 * 3, top + dp40 / 4 + getFontHeight() / 4, paintText);
+        String green = Integer.toHexString(colors[2]).toUpperCase();
+        canvas.drawText(green.length() == 1 ? "0" + green : green, left + dp40 / 4, top + dp40 / 4 * 3 + getFontHeight() / 4, paintText);
+        String blue = Integer.toHexString(colors[3]).toUpperCase();
+        canvas.drawText(blue.length() == 1 ? "0" + blue : blue, left + dp40 / 4 * 3, top + dp40 / 4 * 3 + getFontHeight() / 4, paintText);
     }
 
     public int getFontHeight() {

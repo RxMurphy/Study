@@ -13,6 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+/**
+ * Toolbar练习用Activity
+ * 实现图片沉浸状态栏
+ * AppbarLayout的折叠和展开效果
+ */
 public class ToolbarActivity extends AppCompatActivity {
 
     @Override
