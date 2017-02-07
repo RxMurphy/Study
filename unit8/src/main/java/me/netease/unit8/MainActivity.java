@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         canvas.drawLine(left + dp40 / 2, top, left + dp40 / 2, top + dp40, paintLine);
         canvas.drawLine(left, top + dp40 / 2, left + dp40, top + dp40 / 2, paintLine);
         String alpha = Integer.toHexString(colors[0]).toUpperCase();
-
         canvas.drawText(alpha.length() == 1 ? "0" + alpha : alpha, left + dp40 / 4, top + dp40 / 4 + getFontHeight() / 4, paintText);
         String red = Integer.toHexString(colors[1]).toUpperCase();
         canvas.drawText(red.length() == 1 ? "0" + red : red, left + dp40 / 4 * 3, top + dp40 / 4 + getFontHeight() / 4, paintText);
