@@ -45,6 +45,9 @@
         <activity android:name=".RecyclerViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".ToolbarActivity" />
+        <activity
+            android:name=".ActionBarActivity"
+            android:theme="@style/AppTheme.ActionBar" />
     </application>
 
 </manifest>

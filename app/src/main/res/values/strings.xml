@@ -11,6 +11,7 @@
     <string name="activity_call">跳转到Call</string>
     <string name="activity_view_pager">跳转到ViewPager</string>
     <string name="activity_toolbar">跳转到Toolbar</string>
+    <string name="activity_actionbar">跳转到Actionbar</string>
 
     <string name="call_phone">拨号</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>

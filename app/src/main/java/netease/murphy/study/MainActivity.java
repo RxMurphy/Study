@@ -77,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ToolbarActivity.class));
     }
 
+    public void actionbar(View v) {
+        startActivity(new Intent(this, ActionBarActivity.class));
+    }
+
 
 }

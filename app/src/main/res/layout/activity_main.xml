@@ -77,5 +77,11 @@
             android:layout_height="wrap_content"
             android:onClick="toolbar"
             android:text="@string/activity_toolbar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="actionbar"
+            android:text="@string/activity_actionbar" />
     </LinearLayout>
 </ScrollView>
